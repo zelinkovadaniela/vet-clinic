@@ -17,5 +17,12 @@ class Owner extends Model
         return $this->first_name . " " . $this->surname;
     }
 
-    
+    /**
+     * Returns all Pets that are associated with this owner
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function pets() {
+        return $this->hasMany(Pet::class);
+    }
 }
