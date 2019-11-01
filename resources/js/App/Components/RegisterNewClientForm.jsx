@@ -33,6 +33,7 @@ export default class RegisterNewClientForm extends React.Component {
       .then(result => {
        console.log(result);
        console.log(data);
+       this.props.handleSetClient(result);
       },
       (error) => {
         this.setState({ error });

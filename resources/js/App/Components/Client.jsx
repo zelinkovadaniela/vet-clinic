@@ -13,9 +13,9 @@ export default class Client extends React.Component {
     render() {
         return this.state.showClient ?
         <section>
-            Client
+            {console.log(this.state.showClient)}
         </section>
         : 
-        <RegisterNewClientForm />
+        <RegisterNewClientForm handleSetClient={(client) => this.setState({showClient: client})} />
     }
 }
