@@ -6,6 +6,7 @@ export default class RegisterNewClientForm extends React.Component {
 
         this.initialState = {
             name: '',
+            species: 'dog',
             breed: '',
             weight: '',
             age: '',
@@ -55,6 +56,9 @@ export default class RegisterNewClientForm extends React.Component {
                     <label htmlFor="name">Name:</label>
                     <input type="text" id="name" name="name" value={this.state.name} onChange={(e) => this.setState({name: e.target.value})} />
                     
+                    <label htmlFor="species">Species:</label>
+                    <input type="text" id="species" name="species" value={this.state.species} onChange={(e) => this.setState({species: e.target.value})} />
+
                     <label htmlFor="breed">Breed:</label>
                     <input type="text" id="breed" name="breed" value={this.state.breed} onChange={(e) => this.setState({breed: e.target.value})} />
                     
