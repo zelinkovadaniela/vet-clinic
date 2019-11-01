@@ -4,27 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Owner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OwnerController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Searches through owners
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function search($name)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return Owner::with("pets")
+        ->where("first_name", "like", "%{$name}%" )
+        ->Orwhere("surname", "like", "%{$name}%" )
+        ->get();
     }
 
     /**
@@ -35,7 +29,11 @@ class OwnerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate
+        // $attributes = Owner::validate($request);
+
+        // Persist
+        return Owner::create($request->all());        
     }
 
     /**
@@ -46,18 +44,7 @@ class OwnerController extends Controller
      */
     public function show(Owner $owner)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Owner  $owner
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Owner $owner)
-    {
-        //
+        return Owner::with("pets")->findOrFail($owner->id);
     }
 
     /**
@@ -69,7 +56,11 @@ class OwnerController extends Controller
      */
     public function update(Request $request, Owner $owner)
     {
-        //
+        // Validate
+        // $attributes = Owner::validate($request);
+
+        // Update
+        return $owner->update($request->all());
     }
 
     /**
@@ -80,6 +71,6 @@ class OwnerController extends Controller
      */
     public function destroy(Owner $owner)
     {
-        //
+        if ($owner->delete()) return json_encode(true);
     }
 }

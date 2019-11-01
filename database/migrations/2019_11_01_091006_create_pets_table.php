@@ -20,12 +20,11 @@ class CreatePetsTable extends Migration
             $table->string("breed", 255);
             $table->integer("weight")->nullable();
             $table->integer("age");
+            $table->string("image")->nullable();
             $table->unsignedBigInteger("owner_id");
-            $table->unsignedBigInteger("image_id")->nullable();
             $table->timestamps();
 
-            $table->foreign("owner_id")->references("id")->on("owners");
-            $table->foreign("image_id")->references("id")->on("images")->onDelete("set null");
+            $table->foreign("owner_id")->references("id")->on("owners")->onDelete("cascade");
         });
     }
 

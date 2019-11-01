@@ -43,11 +43,6 @@ class DatabaseSeeder extends Seeder
 				$image = $pet["photo"];
 				$weight = $pet["weight"];
 
-				// Create new image
-				$image = Image::create([
-					"path" => $image
-				]);
-
 				// Create new pet
 				Pet::create([
 					"name" => $name,
@@ -55,8 +50,8 @@ class DatabaseSeeder extends Seeder
 					"breed" => $breed,
 					"weight" => $weight,
 					"age" => $age,
-					"owner_id" => $owner->id,
-					"image_id" => $image->id
+                    "image" => $image,
+					"owner_id" => $owner->id
 				]);
     		}
     	}

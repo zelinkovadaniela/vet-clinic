@@ -8,23 +8,13 @@ use Illuminate\Http\Request;
 class PetController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Searches through pets
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function search($name)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return Pet::with("owner")->where("name", "like", "%{$name}%" )->get();
     }
 
     /**
@@ -35,7 +25,11 @@ class PetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate
+        // $attributes = Pet::validate($request);
+
+        // Persist
+        return Pet::create($request->all());
     }
 
     /**
@@ -46,18 +40,7 @@ class PetController extends Controller
      */
     public function show(Pet $pet)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Pet  $pet
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Pet $pet)
-    {
-        //
+        return Pet::with("owner")->findOrFail($pet->id);
     }
 
     /**
@@ -69,7 +52,11 @@ class PetController extends Controller
      */
     public function update(Request $request, Pet $pet)
     {
-        //
+        // Validate
+        // $attributes = Pet::validate($request);
+        
+        // Update
+        return $pet->update($request->all());
     }
 
     /**
@@ -80,6 +67,6 @@ class PetController extends Controller
      */
     public function destroy(Pet $pet)
     {
-        //
+        if ($pet->delete()) return json_encode(true);
     }
 }
