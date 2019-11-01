@@ -5,6 +5,7 @@
 /vendor
 
 /public/css
+/public/js
 /public/images
 /public/mix-manifest.json
 
