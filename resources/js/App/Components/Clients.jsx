@@ -10,7 +10,7 @@ export default class Clients extends React.Component {
         }
     }
 
-    componentDidMount() {
+    handleSubmit = () => {
         fetch(`/clients/${this.state.searchQuery}`, {
             headers: {
                 'Accept':       'application/json',
@@ -26,8 +26,8 @@ export default class Clients extends React.Component {
     render() {
         return (
             <section>
-                <form action="post">
-                    <input type="search" onChange={(e) => this.setState({searchQuery: e.target.value})} />
+                <form action="post" onSubmit={this.handleSubmit}>
+                    <input className="searchBox" type="search" onChange={(e) => this.setState({searchQuery: e.target.value})} />
                 </form>
             </section>  
         )

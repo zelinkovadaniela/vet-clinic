@@ -27,11 +27,18 @@ h2 {
 }
 
 .backgroundImage {
-    background: url('/public/images/mainImage.jpg') no-repeat;
+    background: url('/img/mainImage.jpg') no-repeat;
 }
 
 section {
-    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+.loginToggle {
+    display: table;
+    margin-left: auto;
+    height: 32px;
+    line-height: 32px;
 }
 
 .loginBoxWrapper {
@@ -75,6 +82,7 @@ input {
     border: 1px solid lightslategray;
     height: 36px;
     margin-bottom: 12px;
+    padding: 8px;
 }
 
 button {
@@ -85,4 +93,9 @@ button {
     border: 1px solid #1d1d1f;
     color: white;
     font-size: 13px;
+}
+
+.searchBox {
+    background: url("/img/icon-search-grey.svg") 8px no-repeat;
+    padding-left: 32px;
 }

@@ -41,7 +41,7 @@ export default class LoginForm extends React.Component {
                     <input type="text" name="email" onChange={(e) => this.setState({email: e.target.value})} />
                     
                     <label htmlFor="password">Password:</label>
-                    <input type="password" name="password" hidden onChange={(e) => this.setState({password: e.target.value})} />
+                    <input type="password" name="password" onChange={(e) => this.setState({password: e.target.value})} />
 
                     <button type="submit">Log in</button>
                 </form>
