@@ -18,7 +18,7 @@ class CreatePetsTable extends Migration
             $table->string("name", 255);
             $table->string("species", 255);
             $table->string("breed", 255);
-            $table->integer("weight");
+            $table->integer("weight")->nullable();
             $table->integer("age");
             $table->unsignedBigInteger("owner_id");
             $table->unsignedBigInteger("image_id")->nullable();
