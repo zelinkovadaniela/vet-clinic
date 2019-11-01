@@ -18,8 +18,6 @@ export default class RegisterNewClientForm extends React.Component {
 
   onFormSubmit = (data) => {
     const apiUrl = '/api/owners';
-
-    console.log(data)
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
@@ -32,8 +30,6 @@ export default class RegisterNewClientForm extends React.Component {
     fetch(apiUrl, options)
       .then(res => res.json())
       .then(result => {
-       console.log(result);
-       console.log(data);
        this.props.handleSetClient(result);
       },
       (error) => {
