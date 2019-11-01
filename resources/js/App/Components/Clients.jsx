@@ -10,7 +10,8 @@ export default class Clients extends React.Component {
         }
     }
 
-    handleSubmit = () => {
+    handleSubmit = (e) => {
+        e.preventDefault();
         fetch(`/api/owners/search/${this.state.searchQuery}`, {
             headers: {
                 'Accept':       'application/json',
