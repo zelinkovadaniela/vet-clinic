@@ -1,1 +1,88 @@
 //
+
+body,
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+header {
+    text-align: right; 
+    padding: 16px;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.backgroundImage {
+    background: url('/public/images/mainImage.jpg') no-repeat;
+}
+
+section {
+    margin-top: 64px;
+}
+
+.loginBoxWrapper {
+    position: relative;
+}
+
+.loginBox {
+    position: absolute;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+    right: 0;
+    top: 100%;
+    min-width: 320px;
+    min-height: 100px;
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 16px;
+    text-align: left;
+}
+
+.registerForm {
+    margin: 24px auto;
+}
+
+form {
+    display: flex;
+    max-width: 400px;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label {
+    color: #1d1d1f;
+    font-size: 13px;
+    padding-bottom: 4px;
+}
+
+input {
+    border-radius: 4px;
+    box-shadow: none;
+    border: 1px solid lightslategray;
+    height: 36px;
+    margin-bottom: 12px;
+}
+
+button {
+    border-radius: 4px;
+    height: 40px;
+    background: lightslategray;
+    margin-top: 12px;
+    border: 1px solid #1d1d1f;
+    color: white;
+    font-size: 13px;
+}

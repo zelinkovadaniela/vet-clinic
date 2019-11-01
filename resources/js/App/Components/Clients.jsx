@@ -5,12 +5,13 @@ export default class Clients extends React.Component {
         super(props);
 
         this.state = {
-            clients: []
+            clients: [],
+            searchQuery: '',
         }
     }
 
     componentDidMount() {
-        fetch('/clients', {
+        fetch(`/clients/${this.state.searchQuery}`, {
             headers: {
                 'Accept':       'application/json',
                 'Content-Type': 'application/json',
@@ -24,7 +25,11 @@ export default class Clients extends React.Component {
 
     render() {
         return (
-            <h1>List of Clients</h1>
+            <section>
+                <form action="post">
+                    <input type="search" onChange={(e) => this.setState({searchQuery: e.target.value})} />
+                </form>
+            </section>  
         )
     }
 }
