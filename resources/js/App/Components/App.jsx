@@ -1,7 +1,7 @@
 import React from 'react';
 import Clients from './Clients';
 import '../../../../public/css/app.css';
-import RegisterNewClientForm from './RegisterNewClientForm';
+import Client from './Client';
 import LoginFrom from './LoginForm';
 
 export default class App extends React.Component {
@@ -14,7 +14,6 @@ export default class App extends React.Component {
     }
 
     render() {
-
         return (
             <main>
                 <header>
@@ -32,7 +31,8 @@ export default class App extends React.Component {
                 
                
                 <Clients />
-                <RegisterNewClientForm />
+               <hr />
+               <Client />
             </main>
         )
     }

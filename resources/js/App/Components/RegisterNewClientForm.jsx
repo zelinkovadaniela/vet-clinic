@@ -1,25 +1,57 @@
 import React from 'react';
-import '../../../../public/css/app.css';
 
 export default class RegisterNewClientForm extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
+        this.initialState = {
             first_name: '',
             surname: '',
             address: '',
             phone: '',
             email: '',
-        }
+          }
+
+        this.state = this.initialState;
     }
+
+
+  onFormSubmit = (data) => {
+    const apiUrl = '/api/owners';
+
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(data),
+      myHeaders
+    };
+
+    fetch(apiUrl, options)
+      .then(res => res.json())
+      .then(result => {
+       console.log(result);
+       console.log(data);
+      },
+      (error) => {
+        this.setState({ error });
+      }
+    )
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.onFormSubmit(this.state);
+    this.setState(this.initialState);
+  }
 
 
     render() {
         return(
             <section>
                 <h2>Register New Client</h2>
-                <form action="post" className="registerForm">
+                <form action="post" className="registerForm" onSubmit={this.handleSubmit}>
                     <label htmlFor="first_name">First name:</label>
                     <input type="text" id="first_name" name="first_name" value={this.state.first_name} onChange={(e) => this.setState({first_name: e.target.value})} />
                     
