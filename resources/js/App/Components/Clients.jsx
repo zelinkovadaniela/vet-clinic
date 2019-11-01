@@ -35,6 +35,7 @@ export default class Clients extends React.Component {
                 {
                     !currentClient?
                     <>
+                        <h2>Search clients</h2>
                         <form action="post" onSubmit={this.handleSubmit}>
                             <input className="searchBox" type="search" onChange={(e) => this.setState({searchQuery: e.target.value})} />
                         </form>
@@ -55,10 +56,10 @@ export default class Clients extends React.Component {
                     :
                     <div>
                         <div className="clientWrapper">
-                                        <h3>{currentClient.first_name} {currentClient.surname}</h3>
-                                        <a href={`mailto:${currentClient.email}`}>{currentClient.email}</a>
-                                        <a href={`tel:${currentClient.phone}`}>{currentClient.phone}</a>
-                                    </div>
+                            <h3>{currentClient.first_name} {currentClient.surname}</h3>
+                            <a href={`mailto:${currentClient.email}`}>{currentClient.email}</a>
+                            <a href={`tel:${currentClient.phone}`}>{currentClient.phone}</a>
+                        </div>
                         <RegisterNewPetForm />
                     </div>
                 }

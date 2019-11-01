@@ -16,6 +16,7 @@ export default class App extends React.Component {
     render() {
         return (
             <main>
+                <div className="backgroundImage" />
                 <header>
                     <div className="loginBoxWrapper">
                         <div className="loginToggle clickable" onClick={() => this.setState({loginBoxOpen: !this.state.loginBoxOpen})}>log in</div>
@@ -25,7 +26,7 @@ export default class App extends React.Component {
                     </div> 
                 </header>
                 <section>
-                <div className="backgroundImage" />
+                
                 <h1>St. Hector's Veterinary Clinic</h1>
                 </section>
                 
@@ -33,6 +34,7 @@ export default class App extends React.Component {
                 <Clients />
                <hr />
                <Client />
+               <div className="backgroundImage" />
             </main>
         )
     }
