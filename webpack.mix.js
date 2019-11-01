@@ -29,7 +29,7 @@ mix.react('resources/js/app.js', 'public/js')
         host: 'localhost',
         port: 3000,
         proxy: {
-            target: 'http://www.mi6.test',
+            target: 'http://www.vet-dog.test',
         }
     });
 
