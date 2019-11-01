@@ -18,7 +18,7 @@ export default class RegisterNewClientForm extends React.Component {
 
   onFormSubmit = (data) => {
     const apiUrl = '/api/pets';
-
+    console.log(data)
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
@@ -50,7 +50,7 @@ export default class RegisterNewClientForm extends React.Component {
     render() {
         return(
             <section>
-                <h2>Register New Client</h2>
+                <h2>Add a pet</h2>
                 <form action="post" className="registerForm" onSubmit={this.handleSubmit}>
                     <label htmlFor="name">Name:</label>
                     <input type="text" id="name" name="name" value={this.state.name} onChange={(e) => this.setState({name: e.target.value})} />

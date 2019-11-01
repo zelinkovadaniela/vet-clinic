@@ -19,6 +19,7 @@ export default class RegisterNewClientForm extends React.Component {
   onFormSubmit = (data) => {
     const apiUrl = '/api/owners';
 
+    console.log(data)
     const myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
 
