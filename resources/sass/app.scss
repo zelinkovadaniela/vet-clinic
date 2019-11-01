@@ -100,3 +100,11 @@ button {
     background: url("/img/icon-search-grey.svg") 8px no-repeat;
     padding-left: 32px;
 }
+
+.clientWrapper {
+    border: 1px solid lightslategray;
+    padding: 16px;
+    max-width: 600px;
+    display: table;
+    margin: 8px auto 0;
+}

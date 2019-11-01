@@ -43,8 +43,10 @@ export default class Clients extends React.Component {
                             <div>
                                 <h2>Clients found</h2>
                                 {this.state.clients.map((client) => (
-                                    <div key={client.id} onClick={() => this.setState({showClient: client.id})}>
-                                        <h3>{client.first_name}</h3>
+                                    <div className="clickable clientWrapper" key={client.id} onClick={() => this.setState({showClient: client.id})}>
+                                        <h3>{client.first_name} {client.surname}</h3>
+                                        <a href={`mailto:${client.email}`}>{client.email}</a>
+                                        <a href={`tel:${client.phone}`}>{client.phone}</a>
                                     </div>
                                 ))}
                             </div>
@@ -52,7 +54,11 @@ export default class Clients extends React.Component {
                     </>
                     :
                     <div>
-                        <h3>{currentClient.first_name}</h3>
+                        <div className="clientWrapper">
+                                        <h3>{currentClient.first_name} {currentClient.surname}</h3>
+                                        <a href={`mailto:${currentClient.email}`}>{currentClient.email}</a>
+                                        <a href={`tel:${currentClient.phone}`}>{currentClient.phone}</a>
+                                    </div>
                         <RegisterNewPetForm />
                     </div>
                 }
