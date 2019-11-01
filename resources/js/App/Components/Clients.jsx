@@ -11,7 +11,7 @@ export default class Clients extends React.Component {
     }
 
     handleSubmit = () => {
-        fetch(`/clients/${this.state.searchQuery}`, {
+        fetch(`/api/owners/search/${this.state.searchQuery}`, {
             headers: {
                 'Accept':       'application/json',
                 'Content-Type': 'application/json',
