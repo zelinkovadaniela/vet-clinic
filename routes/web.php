@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/clients', function () {
+    return json_decode(file_get_contents(storage_path('app/clients.json'))); 
+});
